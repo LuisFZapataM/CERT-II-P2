@@ -13,13 +13,9 @@ import static  org.hamcrest.Matchers.not;
 public class APITests {
 
 
-    // GetBooking by id
-    // Get booking when id is string
-    // POst a booking
-    // Update
-    // Delete
 
 
+    //Get a List of booking Ids
     public List<Integer> GetBookingsIds()
     {
         RestAssured.baseURI = "https://restful-booker.herokuapp.com/booking";
@@ -28,7 +24,7 @@ public class APITests {
         return jsonPath.getList("bookingid");
     }
 
-
+    //Get the AUTH code for the API
     public String GetAUTHCode()
     {
         RestAssured.baseURI = "https://restful-booker.herokuapp.com/auth";
@@ -48,6 +44,7 @@ public class APITests {
         return code;
     }
 
+    //Verify that the API returns a booking with the given Id
     @Test
     public void GetBookingById()
     {
@@ -59,6 +56,7 @@ public class APITests {
        response.then().log().body();
     }
 
+    //Verify that the API return an error code when the id is in the wrong format
     @Test
     public void GetBookingByIdError()
     {
@@ -71,6 +69,7 @@ public class APITests {
 
     }
 
+    //Verify that the API can create a new booking
     @Test
     public void PostNewBooking() throws JsonProcessingException
     {
@@ -103,6 +102,7 @@ public class APITests {
 
     }
 
+    //Verify that the API can modify an existing booking
     @Test
     public void PostNewBookingErrorDates() throws JsonProcessingException
     {
