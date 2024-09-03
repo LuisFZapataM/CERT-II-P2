@@ -93,10 +93,10 @@ public class APITests {
                 .post();
 
        response.then().assertThat().statusCode(200);
-       response.then().body("booking.firstname", Matchers.equalTo(newBooking.getFirstname()));
-       response.then().body("booking.lastname", Matchers.equalTo(newBooking.getLastname()));
-       response.then().body("booking.totalprice", Matchers.equalTo(newBooking.getTotalprice()));
-       response.then().body("booking.depositpaid", Matchers.equalTo(newBooking.getDepositpaid()));
+       response.then().assertThat().body("booking.firstname", Matchers.equalTo(newBooking.getFirstname()));
+       response.then().assertThat().body("booking.lastname", Matchers.equalTo(newBooking.getLastname()));
+       response.then().assertThat().body("booking.totalprice", Matchers.equalTo(newBooking.getTotalprice()));
+       response.then().assertThat().body("booking.depositpaid", Matchers.equalTo(newBooking.getDepositpaid()));
 
 
 
@@ -158,10 +158,10 @@ public class APITests {
         response.then().assertThat().statusCode(200);
         response.then().log().body();
 
-        response.then().body("firstname", Matchers.equalTo(newBooking.getFirstname()));
-        response.then().body("lastname", Matchers.equalTo(newBooking.getLastname()));
-        response.then().body("totalprice", Matchers.equalTo(newBooking.getTotalprice()));
-        response.then().body("depositpaid", Matchers.equalTo(newBooking.getDepositpaid()));
+        response.then().assertThat().body("firstname", Matchers.equalTo(newBooking.getFirstname()));
+        response.then().assertThat().body("lastname", Matchers.equalTo(newBooking.getLastname()));
+        response.then().assertThat().body("totalprice", Matchers.equalTo(newBooking.getTotalprice()));
+        response.then().assertThat().body("depositpaid", Matchers.equalTo(newBooking.getDepositpaid()));
 
 
     }
